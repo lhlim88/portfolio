@@ -433,8 +433,8 @@ h1, h2, h3 {
    ========================================================================== */
 .about-grid {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: clamp(1rem, 2.5vw, 1.75rem);
+  grid-template-columns: minmax(160px, 220px) 1fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
   align-items: start;
 }
 
@@ -442,8 +442,7 @@ h1, h2, h3 {
   background: var(--panel);
   border: 1px solid var(--line);
   aspect-ratio: 4 / 5;
-  width: 50%;
-  max-width: 220px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
