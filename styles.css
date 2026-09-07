@@ -234,10 +234,7 @@ h1, h2, h3 {
 }
 
 .teaser-inner {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: center;
+  display: block;
 }
 
 .monogram-small {
@@ -590,4 +587,217 @@ h1, h2, h3 {
   .project-grid, .project-grid.full { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn { justify-content: center; }
+}
+
+/* sci-fi project teaser */
+.project-teaser.sci-fi {
+  background: var(--ink);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0;
+}
+
+.teaser-frame {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+  border: 1px solid rgba(215, 255, 63, 0.35);
+  margin: clamp(1.5rem, 4vw, 2.5rem) 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(215, 255, 63, 0.025) 0px,
+      rgba(215, 255, 63, 0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  box-shadow: 0 0 0 1px rgba(215, 255, 63, 0.08), 0 0 40px -12px rgba(215, 255, 63, 0.35) inset;
+}
+
+.teaser-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent);
+}
+.teaser-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.teaser-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.teaser-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.teaser-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+.terminal-line {
+  color: var(--accent) !important;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem !important;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.project-teaser.sci-fi h2 {
+  color: var(--bg);
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  margin: 0.4rem 0 0.8rem;
+  max-width: 20ch;
+}
+
+.project-teaser.sci-fi .lede {
+  color: rgba(246, 243, 234, 0.65) !important;
+}
+
+.project-teaser.sci-fi .btn-solid {
+  background: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+.project-teaser.sci-fi .btn-solid:hover {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: 0 0 16px rgba(215, 255, 63, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; }
+}
+
+/* sci-fi project cards */
+.card.sci-fi {
+  position: relative;
+  background: var(--ink);
+  border: 1px solid rgba(215, 255, 63, 0.35);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(215, 255, 63, 0.025) 0px,
+      rgba(215, 255, 63, 0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  box-shadow: 0 0 0 1px rgba(215, 255, 63, 0.08), 0 0 40px -12px rgba(215, 255, 63, 0.35) inset;
+  padding: 2rem;
+}
+
+.card.sci-fi .teaser-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+}
+.card.sci-fi .teaser-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.card.sci-fi .teaser-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.card.sci-fi .teaser-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.card.sci-fi .teaser-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+.card.sci-fi .index-line {
+  margin: 0 0 0.75rem !important;
+}
+
+.card.sci-fi h3 {
+  color: var(--bg);
+}
+
+.card.sci-fi p:not(.terminal-line) {
+  color: rgba(246, 243, 234, 0.65);
+}
+
+.card.sci-fi .card-link {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.card.sci-fi .card-link:hover {
+  color: var(--bg);
+  border-color: var(--bg);
+}
+
+/* whole-page sci-fi theme, scoped to body.sci-fi-page */
+body.sci-fi-page {
+  background: var(--ink);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(215, 255, 63, 0.02) 0px,
+      rgba(215, 255, 63, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+.sci-fi-page .site-header {
+  background: rgba(23, 23, 15, 0.86);
+  border-bottom: 1px solid rgba(215, 255, 63, 0.25);
+}
+
+.sci-fi-page .nav-mark,
+.sci-fi-page .nav-links a {
+  color: var(--bg);
+}
+
+.sci-fi-page .nav-links a::after {
+  background: var(--accent);
+}
+
+.sci-fi-page .nav-links a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.sci-fi-page .nav-toggle {
+  color: var(--bg);
+  border-color: rgba(215, 255, 63, 0.35);
+}
+
+.sci-fi-page .page-intro .eyebrow {
+  color: var(--accent);
+}
+
+.sci-fi-page .page-intro h1 {
+  color: var(--bg);
+}
+
+.sci-fi-page .page-intro p {
+  color: rgba(246, 243, 234, 0.55);
+}
+
+.sci-fi-page .card.sci-fi {
+  background: #1b1f13;
+}
+
+.sci-fi-page .more-soon {
+  color: rgba(246, 243, 234, 0.4);
+}
+
+.sci-fi-page .site-footer {
+  border-top: 1px solid rgba(215, 255, 63, 0.25);
+  background: var(--ink);
+}
+
+.sci-fi-page .footer-inner h4 {
+  color: var(--accent);
+}
+
+.sci-fi-page .footer-inner a {
+  color: rgba(246, 243, 234, 0.75);
+}
+
+.sci-fi-page .footer-inner a:hover {
+  color: var(--accent);
+}
+
+.sci-fi-page .footer-bottom {
+  border-top: 1px solid rgba(215, 255, 63, 0.15);
+  color: rgba(246, 243, 234, 0.45);
+}
+
+.sci-fi-page .back-to-top {
+  color: rgba(246, 243, 234, 0.75);
+  border-color: rgba(215, 255, 63, 0.25);
+}
+.sci-fi-page .back-to-top:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
